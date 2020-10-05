@@ -5,13 +5,18 @@ Python code to download the latest available reviews from the App Store for a
 given App ID
 The Apple Review API
 Anyone can retrieve the RSS feed for a given app using : 
+
 https://itunes.apple.com/{country}/rss/customerreviews/page={page no}/id={your app id}/sortBy=mostRecent/json
+
+
 - country is the App Store country where you sell it, e.g. gb
 - page no is the page of the datato returnj - data is paginated
-- app id is the number following "id" in the App Store URL.
+- app id is the number following "id" in the App Store URL
+
 The API is called using the requests library
 Output is in nested JSON, an examples is given in the example json file on the repo.
 Each of the nested sections is stored as a list of tuples to aid extraction.
+
 The function will:
  - loop through the required number of pages
  - get the reviews in JSON format using teh requests library
