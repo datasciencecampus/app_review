@@ -26,9 +26,9 @@ to access the console automatically to download reviews. For example:
   
     if not 'reviews' in response or len(response['reviews']) == 0:
         print('No reviews')
-        message_to_pubsub(error_topic_name, "No Play Store Reviews Detected", project_id)
     else:
-        print('Reviews detected, saving.')
+        print('Reviews detected.')
+        ....
         
 The following code assumes that the reviews have been downloaded and saved to
 JSON, and this has been loaded to a variable reviews_j
