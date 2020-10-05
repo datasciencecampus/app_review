@@ -8,131 +8,24 @@ given App ID
 The Apple Review API
 Anyone can retrieve the RSS feed for a given app using : 
 https://itunes.apple.com/{country}/rss/customerreviews/page={page no}/id={your app id}/sortBy=mostRecent/json
+
 - country is the App Store country where you sell it, e.g. gb
 - page no is the page of the datato returnj - data is paginated
 - app id is the number following "id" in the App Store URL.
+
 The API is called using the requests library
-Output is in nested JSON, an examples is
-{
-	"feed": {
-		"author": {
-			"name": {
-				"label": "iTunes Store"
-			},
-			"uri": {
-				"label": "http://www.apple.com/uk/itunes/"
-			}
-		},
-		"entry": [{
-				"author": {
-					"uri": {
-						"label": "https://itunes.apple.com/gb/reviews/id417600570"
-					},
-					"name": {
-						"label": "name1"
-					},
-					"label": ""
-				},
-				"im:version": {
-					"label": "3.6.1"
-				},
-				"im:rating": {
-					"label": "1"
-				},
-				"id": {
-					"label": "6480283476"
-				},
-				"title": {
-					"label": "Example Review"
-				},
-				"content": {
-					"label": "This is a review",
-					"attributes": {
-						"type": "text"
-					}
-				},
-				"link": {
-					"attributes": {
-						"rel": "related",
-						"href": "https://itunes.apple.com/gb/review?id=1520427663&type=Purple%20Software"
-					}
-				},
-				"im:voteSum": {
-					"label": "0"
-				},
-				"im:contentType": {
-					"attributes": {
-						"term": "Application",
-						"label": "Application"
-					}
-				},
-				"im:voteCount": {
-					"label": "0"
-				}
-			}
-            		],
-		"updated": {
-			"label": "2020-09-30T07:35:24-07:00"
-		},
-		"rights": {
-			"label": "Copyright 2008 Apple Inc."
-		},
-		"title": {
-			"label": "iTunes Store: Customer Reviews"
-		},
-		"icon": {
-			"label": "http://itunes.apple.com/favicon.ico"
-		},
-		"link": [{
-				"attributes": {
-					"rel": "alternate",
-					"type": "text/html",
-					"href": "https://music.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=gb&id=130"
-				}
-			},
-			{
-				"attributes": {
-					"rel": "self",
-					"href": "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-				}
-			},
-			{
-				"attributes": {
-					"rel": "first",
-					"href": "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=1520427663/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-				}
-			},
-			{
-				"attributes": {
-					"rel": "last",
-					"href": "https://itunes.apple.com/gb/rss/customerreviews/page=10/id=1520427663/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-				}
-			},
-			{
-				"attributes": {
-					"rel": "previous",
-					"href": "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=1520427663/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-				}
-			},
-			{
-				"attributes": {
-					"rel": "next",
-					"href": "https://itunes.apple.com/gb/rss/customerreviews/page=2/id=1520427663/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-				}
-			}
-		],
-		"id": {
-			"label": "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=1520427663/sortBy=mostRecent/json"
-		}
-	}
-}
+
+Output is in nested JSON, an examples is given in the example json file on the repo.
+
 Each of the nested sections is stored as a list of tuples to aid extraction.
+
 The function will:
  - loop through the required number of pages
- - get teh reviews in JSON format using teh requests library
+ - get the reviews in JSON format using teh requests library
  - save each JSON response to storage
  - extract each review from each page and collate as a large dictionary
  - save this as a CSV file
+ 
 Example use:
     
     no_of_pages = 10
