@@ -20,3 +20,15 @@ models/*.vec
 data/*
 .mypy*
 output/*
+.ipynb_checkpoints*
+Untitled.ipynb
+
+*__pycache__/
+*.egg-info
+venv
+*.csv
+.vscode/
+
+# terraform
+*.zip
+.terraform
