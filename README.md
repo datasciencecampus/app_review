@@ -2,6 +2,10 @@
 
 Simple code to allow the gathering and processing of public reviews of apps on the Apple App Store and Google Play Store APIs.
 
+
+## Getting the Data
+App review data is obtained from the App Store and Googl Play Store APIs. Example code for this is shown in the [get_review_data](https://github.com/datasciencecampus/app_review/tree/master/get_review_data) folder. 
+
 ## The Apple App Store Review API
 Reviews on published apps in the Apple App store are openly available. A limited number of reviews can be accessed via a rss call to: 
 
@@ -70,6 +74,4 @@ save_reviews(all_review_data, define_csv_file_name())
 # Or convert to a Pandas dataframe abnd manipluate as required
 all_reviews = pd.DataFrame(all_review_data)
 ```
-
-
 
