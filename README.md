@@ -9,11 +9,11 @@ App review data is obtained from the App Store and Googl Play Store APIs. Exampl
 ## The Apple App Store Review API
 Reviews on published apps in the Apple App store are openly available. A limited number of reviews can be accessed via a rss call to: 
 
-https://itunes.apple.com/{country}/rss/customerreviews/page={page no}/id={your app id}/sortBy=mostRecent/json
+https://itunes.apple.com/{country}/rss/customerreviews/page={page_no}/id={app_id}/sortBy=mostRecent/json
 
 - country is the App Store country where you sell it, e.g. gb
-- page no is the page of the data to return - data is from paginated
-- app id is the number following "id" in the App Store URL
+- page_no is the page of the data to return - data is from paginated
+- app_id is the number following "id" in the App Store URL
 
 The example Python code calls the API the requests library. The resulting nested JSON is flattened and saves as a CSV file.
 
